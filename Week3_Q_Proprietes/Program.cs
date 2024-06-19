@@ -12,56 +12,35 @@ namespace Encapsulation
             Room room = new Room();
             Door houseDoor = new Door();
             Door roomDoor = new Door();
-            house.AddDoor(houseDoor);
-            room.AddDoor(roomDoor);
-            house.AddRoom(room);
+            house.Doors.Add(houseDoor);
+            room.Doors.Add(roomDoor);
+            house.Rooms.Add(room);
         }
     }
 
     public class House
     {
-        private List<Room> _rooms;
-        public List<Door> _doors;
+        public List<Room> Rooms { get; set; }
+        public List<Door> Doors { get; set; }
 
         public House()
         {
-            _rooms = new List<Room>();
-            _doors = new List<Door>();
+            Rooms = new List<Room>();
+            Doors = new List<Door>();
         }
 
-        public List<Room> Rooms
-        {
-            get { return _rooms; }
-            set
-            {
-                _rooms = _rooms.Add(value);
-            }
-        }
 
-        public void AddDoor(Door door)
-        {
-            _doors.Add(door);
-        }
-
-        public void AddRoom(Room room)
-        {
-            _rooms.Add(room);
-        }
     }
 
     public class Room
     {
-        public List<Door> _doors;
+        public List<Door> Doors { get; set; }
 
         public Room()
         {
-            _doors = new List<Door>();
+            Doors = new List<Door>();
         }
 
-        public void AddDoor(Door door)
-        {
-            _doors.Add(door);
-        }
     }
 
     public class Door
